@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="moon.css">
+</head>
+<body>
+    <div class="container">
+        <div class="gif">
+            <img src="https://media1.tenor.com/m/jJCD6LfaIsAAAAAC/cat-i-love-you.gif" width="200px" height="200px" alt="Cat I Love You GIF" >
+        </div>
+        <div>
+            <h1 class="headertext">Moon is Beautiful!!</h1>
+        </div>
+        <div class="buttons">
+            <button class="btn" id="likewisebutton" onclick="nextpage()">Likewise</button>
+            <button class="btn" id="ogeybutton" onmouseover="hidebutton()">ogeyy</button>
+            <button class="btn" id="nobutton" onclick="shrinkbutton()">Noo</button>
+        </div>
+    </div>
+    <script>
+        function nextpage() {
+            window.location.href = "moon1.html";
+        }
+
+        function hidebutton() {
+            var button = document.getElementById("ogeybutton");
+
+            button.style.display = "none";
+
+            document.body.addEventListener("mousemove", function (event) {
+                if (event.target !== button) {
+                    button.style.display = "block";
+                }
+            });
+        }
+
+        function shrinkbutton() {
+            const button1 = document.getElementById("likewisebutton");
+            const button2 = document.getElementById("nobutton");
+
+            resizeButtons(button2, button1);
+        }
+
+        function resizeButtons(shrinkButton, growButton) {
+            const shrinkAmount = 10;
+            const growAmount = 10;
+
+            const shrinkButtonWidth = shrinkButton.clientWidth - shrinkAmount;
+            const shrinkButtonHeight = shrinkButton.clientHeight - shrinkAmount;
+            const growButtonWidth = growButton.clientWidth + growAmount;
+            const growButtonHeight = growButton.clientHeight + growAmount;
+
+            shrinkButton.style.width = `${Math.max(shrinkButtonWidth, 50)}px`;
+            shrinkButton.style.height = `${Math.max(shrinkButtonHeight, 30)}px`;
+            growButton.style.width = `${growButtonWidth}px`;
+            growButton.style.height = `${growButtonHeight}px`;
+        }
+    </script>
+</body>
+</html>
